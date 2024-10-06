@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Menú principal</title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+    .jumbotron {
+        background-image: url('../static/guitarra.png');
+        background-size: cover;
+        background-position: center;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        padding: 4rem 2rem;
+        border-radius: 0.3rem;
+}
+
+    .nav ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .nav ul li {
+      display: inline;
+      margin-right: 15px;
+    }
+
+    .nav ul li a {
+      font-weight: bold;
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    .nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    .jumbotron h1 {
+      font-weight: bold;
+    }
+
+    .titulo {
+      font-family: 'Courier New', Courier, monospace;
+      color: white;
+      margin: 0;
+      display: flex;
+      align-items: center;
+    }
+    .titulo i {
+      margin-right: 8px;
+}
+
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header class="blog-header py-3">
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a href="{{ url_for('menu')}}" class="titulo"><i class="fas fa-guitar"></i> BASE DE DATOS DE MÚSICA</a>
+        </nav>
+    </header>
+
+    <br>
+
+    <div class="jumbotron p-4 p-md-5 rounded">
+      <div class="col-md-6 px-0">
+        <h1 class="display-4 font-italic">Bienvenido al Menú Principal</h1>
+        <p class="lead my-3">Gestiona tu base de datos de canciones <br> de manera fácil y rápida.</p>
+        <p class="lead mb-0 text-white font-weight-bold">Comienza ahora...</p>
+      </div>
+    </div>
+
+    <div class="container">
+        <div class="row mb-2">
+            <div class="col-md-6">
+                <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <h3 class="mb-0">Ingresar una Canción</h3>
+                        <div class="mb-1 text-muted">Actualiza tu base de datos</div>
+                        <p class="card-text mb-auto">Puedes añadir nuevas canciones a tu base de datos fácilmente.</p>
+                        <a href="{{ url_for('ingresar_cancion')}}" class="stretched-link">Ir a Ingresar Canción</a>
+                    </div>
+                    <div class="col-auto d-none d-lg-block">
+                        <img class="bd-placeholder-img" src="static/uno.jpg" width="200" height="250" alt="Thumbnail">
+                    </div>
+                </div>
+            </div>
+    
+            <div class="col-md-6">
+                <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <h3 class="mb-0">Consultar Datos</h3>
+                        <div class="mb-1 text-muted">Consulta los datos de tu base.</div>
+                        <p class="card-text mb-auto">Puedes consultar la información de las canciones en tu base de datos.</p>
+                        <a href="{{ url_for('consultar_canciones')}}" class="stretched-link">Ir a Consultar Datos</a>
+                    </div>
+                    <div class="col-auto d-none d-lg-block">
+                        <img class="bd-placeholder-img" src="static/dos.jpg" width="200" height="250" alt="Thumbnail">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <div class="row mb-2">
+            <div class="col-md-6">
+                <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <h3 class="mb-0">Modificar Tabla</h3>
+                        <div class="mb-1 text-muted">Actualiza los datos de una canción.</div>
+                        <p class="card-text mb-auto">Puedes modificar la información de las canciones en tu base de datos.</p>
+                        <a href="{{ url_for('modificar_cancion')}}" class="stretched-link">Ir a Modificar Tabla</a>
+                    </div>
+                    <div class="col-auto d-none d-lg-block">
+                        <img class="bd-placeholder-img" src="static/tres.jpg" width="200" height="250" alt="Thumbnail">
+                    </div>
+                </div>
+            </div>
+    
+            <div class="col-md-6">
+                <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <h3 class="mb-0">Eliminar una Canción</h3>
+                        <div class="mb-1 text-muted">Elimina los datos de una canción.</div>
+                        <p class="card-text mb-auto">Puedes eliminar la información de las canciones en tu base de datos.</p>
+                        <a href="{{url_for('eliminar_cancion')}}" class="stretched-link">Ir a Eliminar Canción</a>
+                    </div>
+                    <div class="col-auto d-none d-lg-block">
+                        <img class="bd-placeholder-img" src="static/cuatro.jpg" width="200" height="250" alt="Thumbnail">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row mb-2">
+            <div class="col-md-6">
+                <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <h3 class="mb-0">Mostrar Tabla</h3>
+                        <div class="mb-1 text-muted">Mostra tu base de datos</div>
+                        <p class="card-text mb-auto">Puedes visualizar las canciones de tu base de datos.</p>
+                        <a href="{{ url_for('mostrar_contenido')}}" class="stretched-link">Ir a Mostrar Tabla</a>
+                    </div>
+                    <div class="col-auto d-none d-lg-block">
+                        <img class="bd-placeholder-img" src="static/cinco.jpg" width="200" height="250" alt="Thumbnail">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+  </div>
+
+  <footer class="container">
+    <p class="float-right"><a href="#">Volver al principio</a></p>
+    <p >© 2024 · Proyecto de fin de año con Python · Valu Comvaz</p>
+  </footer>
+</body>
+</html>

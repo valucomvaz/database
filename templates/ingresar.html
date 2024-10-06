@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Ingresar Canción</title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <style>
+    body {
+      background-color: #f8f9fa; /* Color de fondo suave */
+    }
+
+    .form-container {
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .titulo {
+      font-family: 'Courier New', Courier, monospace;
+      color: white;
+      margin: 0;
+      display: flex;
+      align-items: center;
+    }
+    .titulo i {
+      margin-right: 8px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="container">
+        <header class="blog-header py-3">
+            <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+                <a href="{{ url_for('menu')}}" class="titulo"><i class="fas fa-guitar"></i> BASE DE DATOS DE MÚSICA</a>
+            </nav>
+        </header>
+    </div>
+
+    <div class="form-container mt-5">
+        <h2 class="base">Ingresar Nueva Canción</h2>
+        <form action="/ingresar" method="POST">
+            <div class="form-group">
+                <label for="titulo">Título de la Canción:</label>
+                <input type="text" class="form-control" id="titulo" name="titulo" value="{{ cancion if cancion else '' }}" required>
+            </div>
+            <div class="form-group">
+                <label for="artista">Artista:</label>
+                <input type="text" class="form-control" id="artista" name="artista" value="{{ artista if artista else '' }}" required>
+            </div>
+            <div class="form-group">
+                <label for="genero">Género:</label>
+                <input type="text" class="form-control" id="genero" name="genero" value="{{ genero if genero else '' }}" required>
+            </div>
+            <div class="form-group">
+                <label for="album">Álbum:</label>
+                <input type="text" class="form-control" id="album" name="album" value="{{ album if album else '' }}" required>
+            </div>
+            <div class="form-group">
+                <label for="año">Año:</label>
+                <input type="number" class="form-control" id="año" name="año" value="{{ año if año else '' }}" required>
+            </div>
+            
+            <div class="d-flex justify-content-between">
+                <button type="submit" class="btn btn-primary">Agregar Canción</button>
+                <a href="{{ url_for('menu') }}" class="btn btn-secondary">Volver al inicio</a>
+            </div>
+        </form>
+    
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="alert alert-success alert-container mt-3" role="alert">
+                    {% for message in messages %}
+                        {{ message }}<br>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+    </div>
+
+
+  <footer class="container mt-5">
+    <p class="float-right"><a href="#">Volver al principio</a></p>
+    <p>© 2024 · Proyecto de fin de año con Python · Valu Comvaz</p>
+  </footer>
+</body>
+</html>
